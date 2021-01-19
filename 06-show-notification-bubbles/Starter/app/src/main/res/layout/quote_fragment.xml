@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/quote"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+        <LinearLayout
+          android:id="@+id/quoteMessages"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="16dp"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="32dp"
+          android:orientation="vertical"
+          app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_chainStyle="spread_inside">
+
+
+                <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginEnd="16dp"
+                  android:layout_marginStart="24dp"
+                  android:layout_marginTop="32dp"
+                  android:layout_weight="1"
+                  android:background="@drawable/message_incoming"
+                  android:backgroundTint="#CCBAED"
+                  android:orientation="vertical">
+
+                        <TextView
+                          android:id="@+id/quoteTextView"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginEnd="16dp"
+                          android:layout_marginStart="16dp"
+                          android:layout_marginTop="16dp"
+                          android:layout_weight="0"
+                          android:fontFamily="sans-serif"
+                          android:textAlignment="center"
+                          android:textColor="#000000"
+                          android:textSize="24sp" />
+
+                        <TextView
+                          android:id="@+id/authorTextView"
+                          android:layout_width="match_parent"
+                          android:layout_height="24dp"
+                          android:layout_marginBottom="16dp"
+                          android:layout_marginEnd="16dp"
+                          android:layout_marginStart="16dp"
+                          android:layout_marginTop="16dp"
+                          android:layout_weight="1"
+                          android:fontFamily="sans-serif-light"
+                          android:textAlignment="textEnd"
+                          android:textColor="@color/design_default_color_on_secondary" />
+                </LinearLayout>
+
+                <TextView
+                  android:id="@+id/questionTextView"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginEnd="16dp"
+                  android:layout_marginStart="24dp"
+                  android:layout_marginTop="16dp"
+                  android:layout_weight="0"
+                  android:background="@drawable/message_incoming"
+                  android:backgroundTint="#CCBAED"
+                  android:fontFamily="sans-serif"
+                  android:padding="16dp"
+                  android:text="Would you like another quote?"
+                  android:textAlignment="viewStart"
+                  android:textColor="#000000"
+                  android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+          android:id="@+id/linearLayout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/quoteMessages">
+                <Button
+                  android:id="@+id/yesButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="8dp"
+                  android:drawableStart="@drawable/ic_refresh"
+                  android:text="@string/yes" />
+                <Button
+                  android:id="@+id/noButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="8dp"
+                  android:drawableStart="@drawable/ic_close"
+                  android:text="@string/no" />
+        </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">Bubble Affirmations</string>
+  <string name="channel_quotes">Bubble Affirmations</string>
+  <string name="channel_quotes_description">Bubble Affirmations Channel</string>
+  <string name="description_icon">Category icon</string>
+  <string name="title_activity_quote_bubble">QuoteBubbleActivity</string>
+  <string name="new_quote">New Quote</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
+  <string name="save_quote">Would you like to save the quote?</string>
+  <string name="sharing_author"> - Sharing</string>
+</resources>

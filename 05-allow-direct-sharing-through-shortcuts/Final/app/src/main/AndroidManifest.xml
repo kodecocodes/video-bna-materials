@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.raywenderlich.android.bubblesaffirmations">
+
+  <application
+    android:name=".App"
+    android:allowBackup="false"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    tools:ignore="GoogleAppIndexingWarning">
+
+    <!--
+       * allowEmbedded="true"  The expanded Bubble is embedded in the System UI.
+       * resizeableActivity="true"  The expanded Bubble is resized by the System UI.
+       * documentLaunchMode="always"  The System UI needs this attribute so it can create multiple
+         instances of this Activity.
+    -->
+    <activity
+      android:name=".ui.quote.QuoteBubbleActivity"
+      android:label="Bubble Affirmations"
+      android:theme="@style/AppTheme.NoActionBar">
+
+      <!--
+        Passes the categoryId from the shortcut to the activity.
+      -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data
+          android:host="raywenderlich.android.bubblesaffirmations.com"
+          android:pathPattern="/quote/*"
+          android:scheme="https" />
+      </intent-filter>
+    </activity>
+
+    <activity
+      android:name=".ui.main.MainActivity"
+      android:launchMode="singleTask"
+      android:theme="@style/SplashTheme">
+      <meta-data
+          android:name="android.app.shortcuts"
+          android:resource="@xml/shortcuts"/>
+      <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="text/plain"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+
+      <!--
+        This is used as the content URI of notifications. It navigates directly to the
+        specified category.
+      -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data
+          android:host="raywenderlich.android.bubblesaffirmations.com"
+          android:pathPattern="/quote/*"
+          android:scheme="https" />
+      </intent-filter>
+
+      <!--
+        This opens the category screen with the quote field filled with the passed text.
+        This is necessary for making our dynamic shortcuts appear in Direct Share.
+      -->
+
+
+      <!--
+        Associates the activity with the dynamic shortcuts.
+      -->
+    </activity>
+
+    <!--
+      A content provider for loading the images as adaptive bitmaps for the icons.
+    -->
+    <provider
+      android:name="com.raywenderlich.android.bubblesaffirmations.util.QuoteAssetFileProvider"
+      android:authorities="com.raywenderlich.android.bubblesaffirmations"
+      android:exported="true"
+      tools:ignore="ExportedContentProvider" />
+  </application>
+</manifest>
